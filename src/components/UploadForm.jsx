@@ -23,6 +23,8 @@ const formSchema = z.object({
 export default function UploadForm() {
   // Create a state to track if we're currently uploading
   const [uploading, setUploading] = useState(false);
+  const [ocrResult, setOcrResult] = useState(null);
+  const [category, setCategory] = useState(null);
   // Get the function to show toast notifications
   const { toast } = useToast();
   const { user } = useUser();
@@ -57,7 +59,7 @@ export default function UploadForm() {
     formData.append('userEmail', user.emailAddresses[0].emailAddress);
     formData.append('username', user.username || user.firstName || 'Unknown');
 
-    console.log('Uploading with userId:', user.id);
+   
 
   try {
       const response = await fetch('/api/upload', {
@@ -69,7 +71,7 @@ export default function UploadForm() {
       if (!response.ok) throw new Error('Upload failed');
 
       const result = await response.json();
-      console.log(result);
+     
 
       toast({
         title: "Upload Successful",
@@ -78,6 +80,33 @@ export default function UploadForm() {
 
       form.reset(); // Clear the form after successful upload
       console.log('Upload successful:', result);
+
+      console.log(`result.imageUrl: ${result.screenshot.imageUrl}`)
+      console.log(`result.id: ${result.screenshot.id}`)
+      console.log(`result.screenshot.clerkId: ${result.screenshot.clerkId}`)
+
+      // Perform OCR
+    const ocrResponse = await fetch('/api/ocr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        imageUrl: result.screenshot.imageUrl,
+        screenshotId: result.screenshot.id
+      }),
+    });
+
+    if (!ocrResponse.ok) throw new Error('OCR processing failed');
+
+    const ocrResult = await ocrResponse.json();
+    console.log('OCR successful:', ocrResult);
+    setOcrResult(ocrResult.extractedText);
+    setOcrResult(ocrResult.extractedText);
+    setCategory(ocrResult.category);
+
+    toast({
+      title: "Process Successful",
+      description: "Your screenshot has been uploaded and processed.",
+    });
 
     } catch (error) {
       console.error('Upload error:', error);
@@ -93,7 +122,9 @@ export default function UploadForm() {
   }
 
   return (
-    <Form {...form}>
+
+    <>
+     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
@@ -115,11 +146,29 @@ export default function UploadForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={uploading || !user}>
-          {uploading ? "Uploading..." : "Upload Screenshot"}
-        </Button>
-      </form>
-    </Form>
-  );
-}
+          <Button type="submit" disabled={uploading || !user}>
+            {uploading ? "Uploading..." : "Upload Screenshot"}
+          </Button>
+        </form>
+      </Form>
+      {ocrResult && (
+          <div className="mt-4">
+            <h3 className="text-lg font-semibold">Extracted Text:</h3>
+            <pre className="mt-2 p-4 bg-gray-100 rounded overflow-auto max-h-60">
+              {ocrResult}
+            </pre>
+          </div>
+        )}
+      {category && (
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold">Category:</h3>
+          <p className="mt-2 p-4 bg-gray-100 rounded">{category}</p>
+        </div>
+      )}
+
+    </>
+   );
+ }
+   
+    
 

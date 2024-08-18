@@ -17,12 +17,12 @@ export async function POST(request) {
     const userEmail = formData.get('userEmail');
     const username = formData.get('username');
 
-    console.log('Received clerkId:', clerkId);
+    // console.log('Received clerkId:', clerkId);
 
-    console.log(`file: ${file}`)
-    console.log(`clerkId: ${clerkId}`)
-    console.log(`userEmail: ${userEmail}`)
-    console.log(`username: ${username}`)
+    // console.log(`file: ${file}`)
+    // console.log(`clerkId: ${clerkId}`)
+    // console.log(`userEmail: ${userEmail}`)
+    // console.log(`username: ${username}`)
     
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
@@ -47,7 +47,7 @@ export async function POST(request) {
         uploadStream.end(buffer)
     })
     
-    console.log(cloudinaryUpload)
+   
 
     if (!cloudinaryUpload) {
       return NextResponse.json({ error: 'Failed to upload to Cloudinary' }, { status: 500 });
@@ -84,8 +84,7 @@ export async function POST(request) {
     });
 
     return NextResponse.json({ 
-      message: 'File uploaded successfully',
-      screenshot 
+      message: 'File uploaded successfully', screenshot 
     });
 
   } catch (error) {
