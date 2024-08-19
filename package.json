@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.3.0",
+    "@clerk/nextjs": "^5.3.1",
+    "@clerk/shared": "^2.5.1",
     "@google-cloud/vision": "^4.3.1",
     "@hookform/resolvers": "^3.9.0",
     "@prisma/client": "^5.18.0",
@@ -27,6 +28,7 @@
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.52.2",
+    "swr": "^2.2.5",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "tesseract.js": "^2.1.0",

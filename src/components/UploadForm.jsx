@@ -6,9 +6,17 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, 
+  FormControl, 
+  FormDescription, 
+  FormField, 
+  FormItem, 
+  FormLabel, 
+  FormMessage 
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import ExtractedInfoDisplay from '@/components/TextDisplay'
 
 // Define rules for our form
 const formSchema = z.object({
@@ -151,20 +159,12 @@ export default function UploadForm() {
           </Button>
         </form>
       </Form>
-      {ocrResult && (
-          <div className="mt-4">
-            <h3 className="text-lg font-semibold">Extracted Text:</h3>
-            <pre className="mt-2 p-4 bg-gray-100 rounded overflow-auto max-h-60">
-              {ocrResult}
-            </pre>
-          </div>
-        )}
-      {category && (
-        <div className="mt-4">
-          <h3 className="text-lg font-semibold">Category:</h3>
-          <p className="mt-2 p-4 bg-gray-100 rounded">{category}</p>
-        </div>
-      )}
+
+        {/* extracted text display component */}
+     <ExtractedInfoDisplay 
+     extractedText = {ocrResult}
+     category = {category}
+     />
 
     </>
    );

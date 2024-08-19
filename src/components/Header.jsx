@@ -1,34 +1,38 @@
 'use client';
 
-import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import { useUser, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import { LogOut  } from "lucide-react";
+import Link from 'next/link';
 
 export default function Header() {
-  const { isSignedIn, user } = useUser();
+  // Get authentication status: isSignedIn (boolean for user's sign-in state) 
+  // and isLoaded (boolean indicating if Clerk has finished initial auth check)
+  const { isSignedIn, isLoaded } = useUser();
 
   return (
     <header className="p-4 bg-gray-100">
       <nav className="flex justify-between items-center container">
-      <h1 className="text-2xl font-extrabold">NoteSelfy</h1>
-      <div>
-        {/* if user is signed in */}
-        {isSignedIn ? (
-          <div className="flex items-center gap-4">
-            <span className="font-bold">Welcome, {user.firstName || user.username}!</span>
-            <SignOutButton className="cursor-pointer">
-             <LogOut />
-            </SignOutButton>
-          </div>
-        ) : (
-        // otherwise show sign out button
-          <SignInButton mode="modal">
-            <Button>Sign in</Button>
-          </SignInButton>
-        )}
-      </div>
+        <Link href="/" className="text-2xl font-extrabold">
+          NoteSelfy
+        </Link>
+      
+        <div className="flex gap-4 items-center">
+          {isLoaded && (
+            isSignedIn ? (
+              <UserButton  appearance={{
+                  elements: {
+                    avatarBox: "w-14 h-14"  // Increased size to 56x56 pixels
+                  }
+                }}/>
+            ) : (
+              <>
+                <Link href="/sign-up"><Button variant="outline">Sign Up</Button></Link>
+                <Link href="/sign-in"><Button>Sign In</Button></Link>
+              </>
+            )
+          )}
+        </div>
       </nav>
     </header>
   );
 }
-        
