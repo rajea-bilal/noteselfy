@@ -89,9 +89,9 @@ export default function UploadForm() {
       form.reset(); // Clear the form after successful upload
       console.log('Upload successful:', result);
 
-      console.log(`result.imageUrl: ${result.screenshot.imageUrl}`)
-      console.log(`result.id: ${result.screenshot.id}`)
-      console.log(`result.screenshot.clerkId: ${result.screenshot.clerkId}`)
+      // console.log(`result.imageUrl: ${result.screenshot.imageUrl}`)
+      // console.log(`result.id: ${result.screenshot.id}`)
+      // console.log(`result.screenshot.clerkId: ${result.screenshot.clerkId}`)
 
       // Perform OCR
     const ocrResponse = await fetch('/api/ocr', {
@@ -107,7 +107,6 @@ export default function UploadForm() {
 
     const ocrResult = await ocrResponse.json();
     console.log('OCR successful:', ocrResult);
-    setOcrResult(ocrResult.extractedText);
     setOcrResult(ocrResult.extractedText);
     setCategory(ocrResult.category);
 
@@ -139,8 +138,8 @@ export default function UploadForm() {
           name="file"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Screenshot</FormLabel>
-              <FormControl>
+              <FormLabel></FormLabel>
+              <FormControl className="cursor-pointer">
                 <Input 
                   type="file" 
                   accept="image/*"
@@ -165,7 +164,7 @@ export default function UploadForm() {
      extractedText = {ocrResult}
      category = {category}
      />
-
+  
     </>
    );
  }

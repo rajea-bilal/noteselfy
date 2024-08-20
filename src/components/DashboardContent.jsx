@@ -3,8 +3,10 @@
 
 import { useState, useEffect } from 'react';
 import ScreenshotCard from './ScreenshotCard';
+import { Loader2 } from "lucide-react";
 
 export default function DashboardContent() {
+
   const [screenshots, setScreenshots] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -16,7 +18,7 @@ export default function DashboardContent() {
           throw new Error('Failed to fetch screenshots');
         }
         const data = await response.json();
-        console.log(data)
+        console.log(`screenshots on the frontend ${data}`)
         setScreenshots(data);
       } catch (error) {
         console.error('Error fetching screenshots:', error);
@@ -29,7 +31,7 @@ export default function DashboardContent() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader2 />
   }
 
   return (

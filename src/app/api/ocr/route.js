@@ -18,7 +18,7 @@ export async function POST(request) {
     
     // perform categorization
      const category = await categorizeText(text);
-    console.log(category)
+    // console.log(category)
 
       if (!category) {
       throw new Error('Categorization failed');

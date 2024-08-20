@@ -19,15 +19,20 @@ export async function POST(request) {
       model: "gpt-3.5-turbo",  // Specify the GPT model to use
       messages: [
         // Set up the conversation context
-        {"role": "system", "content": "You are a helpful assistant that categorizes text."},
+        {
+          role: "system", 
+          content: `You are a helpful assistant that categorizes text.`},
         // Provide the text to be categorized
-        {"role": "user", "content": `Categorize this text: ${extractedText}`}
+        {role: "user", 
+        content: `Categorize this text: ${extractedText}`}
       ],
+        max_tokens: 5,  // Limit the response to a single token (word)
+        temperature: 0.2,  // Lower temperature for more focused responses
     });
 
     // Extract the category from the API response
     const category = completion.data.choices[0].message.content;
-    console.log(category)
+    // console.log(category)
 
     // Update the screenshot record in the database with the new category
     const updatedScreenshot = await prisma.screenshot.update({

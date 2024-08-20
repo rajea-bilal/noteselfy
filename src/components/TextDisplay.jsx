@@ -1,4 +1,4 @@
-// components/ExtractedInfoDisplay.js
+
 export default function ExtractedInfoDisplay({ extractedText, category }) {
 
   

@@ -1,12 +1,14 @@
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster"
+import { twMerge } from "tailwind-merge"
 
 import Header from '@/components/Header'
 import { ClerkProvider} from "@clerk/nextjs";
 
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-serif' });
 
 export const metadata = {
   title: "NoteSelfy",
@@ -18,7 +20,13 @@ export default function RootLayout({ children }) {
     
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body 
+        className={twMerge(
+          inter.variable, 
+          playfair.variable, 
+          "bg-gray-900 text-orange-50 font-sans"
+          )}
+          >
             <Header />
               {children}
             <Toaster />

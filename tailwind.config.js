@@ -11,9 +11,14 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1rem",
+        md: "2rem",
+      },
       screens: {
-        "2xl": "1400px",
+        sm: "375px",
+        md: "768px",
+        lg: "1200px"
       },
     },
     extend: {
@@ -71,6 +76,10 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        sans: 'var(--font-sans)',
+        serif: 'var(--font-serif)'
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

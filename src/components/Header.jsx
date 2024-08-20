@@ -10,9 +10,9 @@ export default function Header() {
   const { isSignedIn, isLoaded } = useUser();
 
   return (
-    <header className="p-4 bg-gray-100">
+    <header className="p-4 bg-white/10 backdrop-blur mb-6">
       <nav className="flex justify-between items-center container">
-        <Link href="/" className="text-2xl font-extrabold">
+        <Link href="/" className="text-2xl font-extrabold text-orange-50/80">
           NoteSelfy
         </Link>
       
