@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         className={twMerge(
           inter.variable, 
           playfair.variable, 
-          "bg-gray-900 text-orange-50 font-sans"
+          "bg-black text-orange-50 font-sans"
           )}
           >
             <Header />
