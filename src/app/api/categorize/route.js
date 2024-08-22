@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
-import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 import prisma from '@/lib/prisma';
 
 // Configure the OpenAI API with your API key
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-// Create an instance of the OpenAI API
-const openAI = new OpenAIApi(configuration);
+
 
 export async function POST(request) {
   try {
@@ -15,7 +14,7 @@ export async function POST(request) {
     const { extractedText, screenshotId } = await request.json();
 
     // Send a request to the OpenAI API for categorization
-    const completion = await openAI.createChatCompletion({
+    const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",  // Specify the GPT model to use
       messages: [
         // Set up the conversation context
