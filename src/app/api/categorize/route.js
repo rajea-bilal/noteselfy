@@ -14,13 +14,13 @@ export async function POST(request) {
     const { extractedText, screenshotId } = await request.json();
 
     // Send a request to the OpenAI API for categorization
-    const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",  // Specify the GPT model to use
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4-1106-preview",  // Specify the GPT model to use
       messages: [
         // Set up the conversation context
         {
           role: "system", 
-          content: `You are a helpful assistant that categorizes text.`},
+          content: `You are a helpful assistant that categorizes text into a single category that is most suitable.`},
         // Provide the text to be categorized
         {role: "user", 
         content: `Categorize this text: ${extractedText}`}

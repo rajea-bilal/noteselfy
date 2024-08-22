@@ -38,7 +38,8 @@ export default async function About() {
               </p>
 
 
-              <p className="mt-6">The result? <br /><span className="bg-gradient-to-r from-red-400 to-blue-400 text-transparent bg-clip-text [-webkit-background-clip:text] font-extrabold text-2xl ">NoteSelfy </span>– the tool I wished I'd had all along. A place where you can effortlessly upload those inspiration-filled screenshots, instantly extract the text, and finally put those words to use. Edit them, copy them, annotate them, share them – bring them back to life! Its a tool to effortlessly transform those forgotten screenshots into active, accessible knowledge.</p>
+              <p className="mt-6">The result? <br /><span className="bg-gradient-to-r from-red-400 to-blue-400 text-transparent bg-clip-text [-webkit-background-clip:text] font-extrabold text-2xl ">NoteSelfy </span>– the tool I wished I&apos;d had all along. A place where you can effortlessly upload those inspiration-filled screenshots, instantly extract the text, and finally put those words to use. Edit them, copy them, annotate them, share them – bring them back to life! It&apos;s a tool to effortlessly transform those forgotten screenshots into active, accessible knowledge.</p>
+
 
               <p className="mt-6">
                 Outside of coding, I balance my time between family and creative pursuits. I enjoy designing with Adobe Illustrator, exploring photography, and reading widely. These interests provide a refreshing break from development but also inspire new ideas for my work. My children are a constant source of joy and motivation, reminding me of the importance of curiosity and continuous learning. 
