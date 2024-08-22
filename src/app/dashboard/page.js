@@ -21,7 +21,7 @@ export default async function DashboardPage() {
     const totalScreenshots = await getTotalScreenshotsCount(userId);
     return (
       <div className="">
-          <h1 className="text-4xl font-bold mb-8 sm:text-5xl bg-gradient-to-r from-red-500 to-blue-500 text-transparent bg-clip-text [-webkit-background-clip:text]">Welcome to dashboard!</h1>
+          <h1 className="text-4xl font-bold mb-8 md:text-5xl bg-gradient-to-r from-red-500 to-blue-500 text-transparent bg-clip-text [-webkit-background-clip:text]">Welcome to dashboard!</h1>
           
         
         
@@ -38,8 +38,8 @@ export default async function DashboardPage() {
                 
               </CardHeader>
               <CardContent>
-                <div className="text-1xl sm:text-2xl font-bold">Total Screenshots: {totalScreenshots}</div>
-                <div className="text-1xl sm:text-2xl  font-bold">Recent Uploads: {recentScreenshots.length}</div>
+                <div className="text-1xl lg:text-2xl font-bold">Total Screenshots: {totalScreenshots}</div>
+                <div className="text-1xl lg:text-2xl  font-bold">Recent Uploads: {recentScreenshots.length}</div>
               </CardContent>
             </Card>
               
@@ -54,13 +54,13 @@ export default async function DashboardPage() {
                 
               </CardHeader>
               <CardContent>
-                <div className="text-1xl sm:text-2xl  font-bold">
+                <div className="text-1xl md:text-2xl  font-bold">
                    <Link href="/dashboard/upload" className="btn btn-primary mb-2 block hover:text-white/20">
                       Upload New Screenshot
                   </Link>
                 </div>
             
-                <div className="text-1xl sm:text-2xl  font-bold">
+                <div className="text-1xl md:text-2xl  font-bold">
                   <Link href="/dashboard/gallery" className="btn btn-secondary block hover:text-white/20">
                       View All Screenshots
                   </Link>
@@ -72,12 +72,12 @@ export default async function DashboardPage() {
         </div>
   
         <div className="bg-black p-6 rounded-lg shadow border border-white/10">
-          <h2 className="text-3xl font-semibold mb-4 text-white/90">Recent Screenshots</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white/90">Recent Screenshots</h2>
           {recentScreenshots.length > 0 ? (
             <ul className="space-y-2">
               {recentScreenshots.map(screenshot => (
                 <li key={screenshot.id}>
-                  <Link href={`/dashboard/screenshot/${screenshot.id}`} className="text-zinc-50/40 hover:underline">
+                  <Link href={`/dashboard/screenshot/${screenshot.id}`} className="text-zinc-50/40 hover:underline text-sm">
                     {screenshot.category || `Screenshot ${screenshot.id}`} - {new Date(screenshot.createdAt).toLocaleDateString()}
                   </Link>
                 </li>

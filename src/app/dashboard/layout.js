@@ -12,10 +12,10 @@ export default async function DashboardLayout({ children }) {
 
   return (
     <div className="container flex h-screen justify-center mt-8 rounded-lg border border-white/20 mb-[5rem] md:mx-2 py-6 ">
-      <aside className="w-16 md:w-64 transition-all duration-300 grid items-start text-sm x-lg:px-2 font-medium border-r border-white/20">
+      <aside className="w-14 md:w-64 transition-all duration-300 grid items-start  x-lg:px-2 font-medium border-r border-white/20">
         <nav className="mt-5 flex flex-col items-center md:items-start">
           <Link href="/dashboard" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:bg-white/10 hover:text-white duration-300">
-            <Home className="h-6 w-6" />
+            <Home className="h-6 w-6 " />
             <span className="hidden md:inline">Dashboard</span>
           </Link>
           <Link href="/dashboard/upload" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:bg-white/10 hover:text-white duration-300">
