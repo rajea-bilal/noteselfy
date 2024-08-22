@@ -7,7 +7,7 @@ export default function ExtractedInfoDisplay({ extractedText, category }) {
       {extractedText && (
         <div className="">
           <h3 className="text-lg font-semibold mb-2">Extracted Text:</h3>
-          <p className="p-4 rounded bg-[#151518] rounded-lg overflow-auto max-h-60 text-sm whitespace-pre-wrap">
+          <p className="p-4 rounded bg-[#151518] overflow-auto max-h-60 text-sm whitespace-pre-wrap">
             {extractedText}
           </p>
         </div>
@@ -15,7 +15,7 @@ export default function ExtractedInfoDisplay({ extractedText, category }) {
       {category && (
           <div className="">
             <h3 className="text-lg font-semibold mb-2">Category:</h3>
-            <p className="p-4 rounded bg-[#151518] rounded-lg  text-sm">{category}</p>
+            <p className="p-4 rounded bg-[#151518] text-sm">{category}</p>
           </div>
       )}
     </div>
