@@ -144,6 +144,7 @@ export default function UploadForm() {
                   type="file" 
                   accept="image/*"
                   onChange={(e) => field.onChange(e.target.files?.[0])}
+                  className="text-white/70"
                 />
               </FormControl>
               <FormDescription>
@@ -153,7 +154,7 @@ export default function UploadForm() {
             </FormItem>
           )}
         />
-          <Button type="submit" disabled={uploading || !user}>
+          <Button type="submit" disabled={uploading || !user} className="bg-white/70 text-black hover:bg-white/80">
             {uploading ? "Uploading..." : "Upload Screenshot"}
           </Button>
         </form>

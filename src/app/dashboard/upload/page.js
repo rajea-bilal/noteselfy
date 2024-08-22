@@ -18,7 +18,7 @@ export default function UploadPage() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-6">Upload a screenshot</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white/40">Upload a screenshot</h1>
       <UploadForm 
         onUploadSuccess={handleUploadSuccess}
         onUploadStart={() => setLoading(true)}

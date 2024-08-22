@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import logoImage from '../../public/logo.png'
 import Image from "next/image";
+import { useState } from 'react';
 
 export default function Header() {
   // Get authentication status: isSignedIn (boolean for user's sign-in state) 
   // and isLoaded (boolean indicating if Clerk has finished initial auth check)
   const { isSignedIn, isLoaded } = useUser();
+ 
 
   return (
     <header className="p-6 bg-black ">
@@ -19,14 +21,16 @@ export default function Header() {
           <Link href="/" className="block z-10 relative">
             <Image src={logoImage}
             alt="Logo" 
-              width={48} 
-              height={48} 
-              className="w-16 h-16"/>
+              width={100} 
+              height={100} 
+              className="w-[4rem] rounded-lg  backdrop-blur opacity-75"/>
           </Link>
         </div>
 
       
         <div className="flex gap-4 items-center">
+         {!isLoaded && <p>Loading...</p>}
+          
           {isLoaded && (
             isSignedIn ? (
               <UserButton  appearance={{
@@ -36,9 +40,9 @@ export default function Header() {
                 }}/>
             ) : (
               <>
-                <Link href="/sign-in" className="cursor-pointer text-white text-opacity-60 hover:text-opacity-100 transition ">About</Link>
-                <Link href="/sign-in" className="cursor-pointer text-white text-opacity-60 hover:text-opacity-100 transition"><button className="border border-text/70 py-2 px-4 rounded-lg">Sign In</button></Link>
-                <Link href="/sign-up" className="cursor-pointer text-white transition"><button className="bg-white/70 py-2 px-4 rounded-lg text-black hover:bg-white ">Sign up</button></Link>
+                <Link href="/about" className="cursor-pointer text-white/70 hover:text-white/100 transition border border-white/30 py-2 px-4 rounded-lg font-semibold">About</Link>
+                <Link href="/sign-in" className="cursor-pointer text-white/70  hover:text-white/100 transition"><button className="border border-white/30 py-2 px-4 rounded-lg font-semibold">Sign In</button></Link>
+                <Link href="/sign-up" className="cursor-pointer transition "><button className="bg-white/70 py-2 px-4 rounded-lg text-black hover:bg-white font-semibold">Sign up</button></Link>
               </>
             )
           )}

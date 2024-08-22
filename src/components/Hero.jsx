@@ -1,5 +1,5 @@
 
-
+import Link from 'next/link';
 
 export default function Hero() {
 
@@ -17,7 +17,7 @@ export default function Hero() {
     </div>
 
         <div className="flex justify-center mt-8">
-          <button className="bg-white text-black py-3 px-5 rounded-lg font-medium">Sign up</button>
+          <Link href="/sign-up" className="cursor-pointer text-white transition"><button className="bg-white text-black py-3 px-5 rounded-lg font-medium">Sign up</button></Link>
         </div>
     </div>
   </section>
