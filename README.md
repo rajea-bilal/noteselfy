@@ -93,9 +93,9 @@ It leverages **OCR technology** and **AI-powered categorization** to help users 
 
 Developed by **Rajea Bilal**. For any inquiries or feedback, please reach out to me:
 
-**Email**: rajea.bilal@gmail.com
-**LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/rajea-bilal/)
-**GitHub**: [GitHub Profile](https://github.com/rajea-bilal)
+- **Email**: rajea.bilal@gmail.com
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/rajea-bilal/)
+- **GitHub**: [GitHub Profile](https://github.com/rajea-bilal)
 
 Feel free to connect with me if you have any questions about NoteSelfy or if you'd like to discuss potential collaborations!
 
