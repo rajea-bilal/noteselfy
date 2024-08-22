@@ -39,7 +39,6 @@ export default function Header() {
             </div>
 
             {/* nav */}
-            {/* sign-in/sign-up buttons */}
           <div className="hidden sm:flex gap-4 items-center ">
           {!isLoaded && <p>Loading...</p>} 
           
