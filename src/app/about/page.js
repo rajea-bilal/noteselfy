@@ -31,7 +31,7 @@ export default async function About() {
                   In a world drowning in digital information, I found myself constantly capturing snippets of wisdom through screenshots. Like many of us, I'd promise to revisit these nuggets of inspiration later, only to have them vanish into the vast ocean of my phone's gallery. This common frustration became the spark for <span className=" bg-gradient-to-r from-red-400 to-blue-400 text-transparent bg-clip-text [-webkit-background-clip:text] font-extrabold text-2xl">NoteSelfy</span>.
               </p>
 
-              <p className="mt-6">I'm <a className="font-bold text-white/90 " href="https://rajea-bilal.netlify.app/" target="_blank">Rajea Bilal</a>, a problem-solver at heart with a background in business and teaching. My journey into coding began with a simple desire: to create solutions for everyday challenges. </p> 
+              <p className="mt-6">I&apos;m  <a className="font-bold text-white/90 " href="https://rajea-bilal.netlify.app/" target="_blank">Rajea Bilal</a>, a problem-solver at heart with a background in business and teaching. My journey into coding began with a simple desire: to create solutions for everyday challenges. </p> 
 
               <p className="mt-6">
               In 2023, I took a leap of faith and joined the <a href="https://schoolofcode.co.uk/" target="_blank" className="font-bold text-white/90 underline-offset-4">School of Code</a> bootcamp, where I honed my skills in web development. This intensive experience equipped me with technical knowledge and ignited a fire to build something meaningful.
@@ -47,7 +47,7 @@ export default async function About() {
 
 
               <p className="mt-6">
-                I'm always eager to learn and grow, and I'd love to hear from you. Feel free to reach out if you have any questions or just want to chat about tech, productivity, or history!
+                I&apos;m always eager to learn and grow, and I&apos;d love to hear from you.. Feel free to reach out if you have any questions or just want to chat about tech, productivity, or history!
               </p>
           </article>
 
