@@ -1,9 +1,8 @@
 'use client';
 
 import { useUser, UserButton } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import logoImage from '../../public/logo.png'
+import logoImage from '../../images/logoCircular.png'
 import Image from "next/image";
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react'
@@ -19,7 +18,7 @@ export default function Header() {
   };
 
   return (
-    <header className="p-6 bg-black ">
+    <header className="p-6  ">
      
       <div className="px-4 lg:px-6">
         <div className="py-4 flex items-center justify-between">
@@ -31,12 +30,12 @@ export default function Header() {
             alt="Logo" 
               width={100} 
               height={100} 
-              className="h-12 w-12 rounded-lg  backdrop-blur opacity-75"/>
+              className="w-[4rem] rounded-lg  backdrop-blur opacity-75"/>
           </Link>
           </div>
             {/* mobile view hamburger menu */}
-            <div className="border border-white border-opacity-30 inline-flex h-10 w-10 justify-center items-center rounded-md sm:hidden" onClick={toggleMobileMenu}>
-             {mobileMenuOpen ? <X className="cursor-pointer text-white"/> :  <Menu className="cursor-pointer text-white"/>}
+            <div className="border border-white border-opacity-30 p-1 inline-flex justify-center items-center rounded-md sm:hidden" onClick={toggleMobileMenu}>
+             {mobileMenuOpen ? <X className="cursor-pointer text-white/80 h-9 w-9"/> :  <Menu className="cursor-pointer text-white/80 h-9 w-9"/>}
             </div>
 
             {/* nav */}
@@ -66,13 +65,13 @@ export default function Header() {
           {/* mobile menu */}
         {mobileMenuOpen && (
           <div className="sm:hidden mt-6 flex flex-col gap-4">
-            <Link href="/about" className="bg-[#18181a] py-2 px-4 rounded-lg text-white/70 hover:text-white/20 text-center">About</Link>
+            <Link href="/about" className="bg-[#333333] py-2 px-4 rounded-lg text-white/70 hover:bg-opacity-50 text-center">About</Link>
 
             {/* if user is not signed in, show the buttons */}
             {!isSignedIn && (
               <>
-                <Link href="/sign-in" className="bg-[#18181a] py-2 px-4 rounded-lg text-white/70 hover:text-white/20 text-center">Sign In</Link>
-                <Link href="/sign-up" className="bg-[#18181a] py-2 px-4 rounded-lg text-white/70 hover:text-white/20 text-center">Sign up</Link>
+                <Link href="/sign-in" className="bg-[#333333] py-2 px-4 rounded-lg text-white/70 hover:bg-opacity-50 text-center">Sign In</Link>
+                <Link href="/sign-up" className="bg-[#333333] py-2 px-4 rounded-lg text-white/70 hover:bg-opacity-50 text-center">Sign up</Link>
               </>
             )}
 
