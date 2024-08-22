@@ -7,7 +7,7 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 // Create an instance of the OpenAI API
-const openai = new OpenAIApi(configuration);
+const openAI = new OpenAIApi(configuration);
 
 export async function POST(request) {
   try {
@@ -15,7 +15,7 @@ export async function POST(request) {
     const { extractedText, screenshotId } = await request.json();
 
     // Send a request to the OpenAI API for categorization
-    const completion = await openai.createChatCompletion({
+    const completion = await openAI.createChatCompletion({
       model: "gpt-3.5-turbo",  // Specify the GPT model to use
       messages: [
         // Set up the conversation context
