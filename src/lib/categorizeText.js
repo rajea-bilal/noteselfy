@@ -7,11 +7,11 @@ const openai = new OpenAI({
 
 export async function categorizeText(text) {
   const completion = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+    model: "gpt-4-1106-preview",
     messages: [
       {
         role: "system", 
-        "content": "You are a helpful assistant that categorizes text."
+        "content": "You are a helpful assistant that categorizes text into a single category."
       },
       {
         role: "user", 
