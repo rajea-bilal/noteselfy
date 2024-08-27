@@ -20,7 +20,7 @@ export default async function DashboardPage() {
     const recentScreenshots = await getRecentScreenshots(userId, 5);
     const totalScreenshots = await getTotalScreenshotsCount(userId);
     return (
-      <div className="">
+      <div className="pr-6 flex flex-col">
           <h1 className="text-4xl font-bold mb-8 md:text-5xl bg-gradient-to-r from-red-500 to-blue-500 text-transparent bg-clip-text [-webkit-background-clip:text]">Welcome to dashboard!</h1>
           
         
@@ -71,7 +71,7 @@ export default async function DashboardPage() {
   
         </div>
   
-        <div className="bg-black p-6 rounded-lg shadow border border-white/10">
+        <div className="bg-[#18181a] text-white/90 p-6 rounded-lg shadow max-w-[42rem]">
           <h2 className="text-2xl font-semibold mb-4 text-white/90">Recent Screenshots</h2>
           {recentScreenshots.length > 0 ? (
             <ul className="space-y-2">

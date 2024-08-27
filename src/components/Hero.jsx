@@ -9,7 +9,7 @@ export default function Hero() {
   // and isLoaded (boolean indicating if Clerk has finished initial auth check)
   const { isSignedIn, isLoaded } = useUser();
   return (
-  <section className="bg-black text-white bg-[linear-gradient(to_bottom,#000,#200D42_35%,#4F21A1_65%,#A46EDB_82%)] py-[72px] relative overflow-clip">
+  <section className="bg-black text-white bg-[linear-gradient(to_bottom,#000,#200D42_35%,#4F21A1_65%,#A46EDB_82%)] py-[72px] relative overflow-clip ">
     <div className="absolute h-[375px] w-[750px] sm:w-[1536px] sm:h-768px] rounded-[100%] bg-black left-1/2 -translate-x-1/2  bg-[radial-gradient(closest-side,#000_82%,#9560EB)] top-[calc(100%-96px)]"></div>
     <div className="container relative">
 
